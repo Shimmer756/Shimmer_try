@@ -13,15 +13,23 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.x'
+        python-version: '3.9'  # 你可以明确指定一个合适的 Python 版本
 
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install numpy pandas pytest
 
+    - name: Verify dependencies
+      run: |
+        python -c "import numpy; import pandas; import pytest"
+        
     - name: Run tests
       run: pytest
+
+
+
+
 
 
 
